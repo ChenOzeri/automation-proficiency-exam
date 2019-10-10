@@ -31,60 +31,60 @@ class SelenuimInfra{
     }
 
 // Click on element
-    async clickElement(locatorType = "id" , locatorValue = " " , element , fromElement) {
-        try {
+    async clickElement(locatorType = "id" , locatorValue = " " , element , fromElement) {
+        try {
             if(!element){
                 if(fromElement){
-                    element = await fromElement.findElement(By[locatorType](locatorValue))
+                    element = await fromElement.findElement(By[locatorType](locatorValue))
                 }else{
-                    element = await this.driver.findElement(By[locatorType](locatorValue))
+                    element = await this.driver.findElement(By[locatorType](locatorValue))
                 }
             }
             this.driver.sleep(2000)
-            await element.click()
+            await element.click()
             this.driver.sleep(2000)
             
-            console.log(`Clicked on element with ${locatorType} = ${locatorValue}`)
+            console.log(`Clicked on element with ${locatorType} = ${locatorValue}`)
         }
-        catch (error) {
-            console.error(`Got error while trying to click on element with ${locatorType} = ${locatorValue}`)
+        catch (error) {
+            console.error(`Got error while trying to click on element with ${locatorType} = ${locatorValue}`)
         }
     }
 
 
 // Send Keys To Element
     async write(data , locatorType , locatorValue , element , fromElement){
-        try {
+        try {
             if(!element){
                 if(fromElement){
-                    element = await fromElement.findElement(By[locatorType](locatorValue))
+                    element = await fromElement.findElement(By[locatorType](locatorValue))
                 }else{
-                    element = await this.driver.findElement(By[locatorType](locatorValue))
+                    element = await this.driver.findElement(By[locatorType](locatorValue))
                 }
             }
-            await element.sendKeys(data)
-            console.log(`Send Keys to element with ${locatorType} = ${locatorValue} `)
+            await element.sendKeys(data)
+            console.log(`Send Keys to element with ${locatorType} = ${locatorValue} `)
         }
-        catch (error) {
-            console.error(`Got error while trying to send keys to element with ${locatorType} = ${locatorValue}`)
+        catch (error) {
+            console.error(`Got error while trying to send keys to element with ${locatorType} = ${locatorValue}`)
         }
     }
 
 // Get text from element
     async getTextFromElement(locatorType , locatorValue , element, fromElement){
-        try {
+        try {
             if(!element){
                 if(fromElement){
-                    element = await fromElement.findElement(By[locatorType](locatorValue))
+                    element = await fromElement.findElement(By[locatorType](locatorValue))
                 }else{
-                    element = await this.driver.findElement(By[locatorType](locatorValue))
+                    element = await this.driver.findElement(By[locatorType](locatorValue))
                 }
             }
-            console.log(`Get text from element with ${locatorType} = ${locatorValue} `)
+            console.log(`Get text from element with ${locatorType} = ${locatorValue} `)
             return await element.getText()
         }
-        catch (error) {
-            console.error(`Got error while trying to get text from element with ${locatorType} = ${locatorValue}`)
+        catch (error) {
+            console.error(`Got error while trying to get text from element with ${locatorType} = ${locatorValue}`)
             console.log(error)
             return ""
         }
@@ -92,27 +92,27 @@ class SelenuimInfra{
 
 // Clear element field
     async clearElementField(locatorType , locatorValue ,element, fromElement){
-        try {
+        try {
             if(!element){
                 if(fromElement){
-                    element = await fromElement.findElement(By[locatorType](locatorValue))
+                    element = await fromElement.findElement(By[locatorType](locatorValue))
                 }else{
-                    element = await this.driver.findElement(By[locatorType](locatorValue))
+                    element = await this.driver.findElement(By[locatorType](locatorValue))
                 }
             }
             await element.clear()
-            console.log(`Clear text from element with ${locatorType} = ${locatorValue} `)
+            console.log(`Clear text from element with ${locatorType} = ${locatorValue} `)
         }
-        catch (error) {
-            console.error(`Got error while trying to Clear text from element with ${locatorType} = ${locatorValue}`)
+        catch (error) {
+            console.error(`Got error while trying to Clear text from element with ${locatorType} = ${locatorValue}`)
         }
     }
 
 // Check if element exists
     async isElementExists(locatorType , locatorValue){
         let element
-        try {
-            element = await this.driver.findElement(By[locatorType](locatorValue))
+        try {
+            element = await this.driver.findElement(By[locatorType](locatorValue))
             return true
         }
         catch{
@@ -125,15 +125,15 @@ class SelenuimInfra{
         let element
         try{
             if(fromElement){
-                element = await fromElement.findElement(By[locatorType](locatorValue))
+                element = await fromElement.findElement(By[locatorType](locatorValue))
             }
             else{
-                element = await this.driver.findElement(By[locatorType](locatorValue))
+                element = await this.driver.findElement(By[locatorType](locatorValue))
             }
-            console.log(`Find element with ${locatorType} = ${locatorValue} `)
+            console.log(`Find element with ${locatorType} = ${locatorValue} `)
         }
         catch{
-            console.error(`Got error while trying to find element with ${locatorType} = ${locatorValue}`)
+            console.error(`Got error while trying to find element with ${locatorType} = ${locatorValue}`)
         }
         return element
     }
@@ -143,15 +143,15 @@ class SelenuimInfra{
         let element
         try{
             if(fromElement){
-                element = await fromElement.findElements(By[locatorType](locatorValue))
+                element = await fromElement.findElements(By[locatorType](locatorValue))
             }
             else{
-                element = await this.driver.findElements(By[locatorType](locatorValue))
+                element = await this.driver.findElements(By[locatorType](locatorValue))
             }
             return element
         }
         catch{
-            console.error(`Got error while trying to find element with ${locatorType} = ${locatorValue}`)
+            console.error(`Got error while trying to find element with ${locatorType} = ${locatorValue}`)
         }
     }
 
